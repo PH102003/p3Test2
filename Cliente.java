@@ -102,6 +102,10 @@ public class Cliente {
         }
     }
     public void comprar() {
-
+        Item carrinhoNovo3[] = getCarrinhoDeCompras();
+        int indice2 = 0;
+        for(int i = 0; i < indice2; i++){
+            carrinhoNovo3[i] 
+        }
     }
 }
