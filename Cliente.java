@@ -87,12 +87,19 @@ public class Cliente {
     public void cancelar(int codigoProduto) {
         Item[] carrinhoNovo2 = getCarrinhoDeCompras();
         int indice = 0;
+        boolean itemEncontrado = false;
         while (indice < carrinhoNovo2.length) {
-            if (carrinhoNovo2[indice] != null && carrinhoNovo2[indice].getCodigo() == codigoProduto){
+            if (carrinhoNovo2[indice] != null && carrinhoNovo2[indice].getCodigo() == codigoProduto) {
                 carrinhoNovo2[indice] = null;
-            }else{
-                System.out.println("Item não pode ser removido");
+                itemEncontrado = true;
+                break;
             }
+            indice++;
+        }
+    
+        if (!itemEncontrado) {
+            System.out.println("Item não pode ser removido (Não encontrado no carrinho)");
+        }
     }
     }
 
