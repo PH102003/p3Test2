@@ -101,8 +101,6 @@ public class Cliente {
             System.out.println("Item não pode ser removido (Não encontrado no carrinho)");
         }
     }
-    }
-
     public void comprar() {
 
     }
