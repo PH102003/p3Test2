@@ -89,8 +89,12 @@ public class Cliente {
         int indice = 0;
         boolean itemEncontrado = false;
         while (indice < carrinhoNovo2.length) {
+            //percorrendo vetor
             if (carrinhoNovo2[indice] != null && carrinhoNovo2[indice].getCodigo() == codigoProduto) {
+                //localiza se a posição não é *null*
+                
                 carrinhoNovo2[indice] = null;
+                
                 itemEncontrado = true;
                 break;
             }
@@ -98,14 +102,23 @@ public class Cliente {
         }
     
         if (!itemEncontrado) {
+            //caso o item não exista
             System.out.println("Item não pode ser removido (Não encontrado no carrinho)");
         }
     }
     public void comprar() {
         Item carrinhoNovo3[] = getCarrinhoDeCompras();
-        int indice2 = 0;
-        for(int i = 0; i < indice2; i++){
-            carrinhoNovo3[i] 
+        int totalItens = 0;
+        double gastoTotal = 0.0;
+        for(int i = 0; i < carrinhoNovo3.length; i++){
+            if(carrinhoNovo3[i] != null){
+                gastoTotal+= carrinhoNovo3[i].getValor();
+                //incremento de itens não nulos (enquanto o if for verdadeiro, esse incremento serve pro uso da média final)
+                totalItens++;
+                carrinhoNovo3[i].setQuantidadeEstoque(carrinhoNovo3[i].getQuantidadeEstoque() - 1);
+            }
+            double media = gastoTotal/totalItens;
+            System.out.println(media);
         }
     }
 }
