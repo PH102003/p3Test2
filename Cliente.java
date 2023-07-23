@@ -87,7 +87,7 @@ public class Cliente {
     public void cancelar(int codigoProduto) {
         Item[] carrinhoNovo2 = getCarrinhoDeCompras();
         int indice = 0;
-        boolean itemEncontrado = false;
+        boolean itemRemovido = false;
         while (indice < carrinhoNovo2.length) {
             //percorrendo vetor
             if (carrinhoNovo2[indice] != null && carrinhoNovo2[indice].getCodigo() == codigoProduto) {
@@ -95,13 +95,13 @@ public class Cliente {
                 
                 carrinhoNovo2[indice] = null;
                 
-                itemEncontrado = true;
+                itemRemovido = true;
                 break;
             }
             indice++;
         }
     
-        if (!itemEncontrado) {
+        if (!itemRemovido) {
             //caso o item não exista
             System.out.println("Item não pode ser removido (Não encontrado no carrinho)");
         }

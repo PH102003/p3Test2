@@ -29,11 +29,13 @@ public class Funcionario extends ClienteEspecial {
     public void renovarEstoque(int itens, Item item){
         
         item.setQuantidadeEstoque(item.getQuantidadeEstoque() + itens);
+        //faz a soma do item dentro do estoque
     }
     public void bloquearItem(Item itemBloqueado){
         try {
          if(itemBloqueado != null){
             System.out.println("Item bloqueado com sucesso");
+            //entra no else se o item for 'null'
         }else{
             throw new IllegalArgumentException("Item inexistente");
         } 
