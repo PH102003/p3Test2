@@ -26,5 +26,20 @@ public class Funcionario extends ClienteEspecial {
     public void setSalario(double salario) {
         this.salario = salario;
     }
-
+    public void renovarEstoque(int itens, Item item){
+        
+        item.setQuantidadeEstoque(item.getQuantidadeEstoque() + itens);
+    }
+    public void bloquearItem(Item itemBloqueado){
+        try {
+         if(itemBloqueado != null){
+            System.out.println("Item bloqueado com sucesso");
+        }else{
+            throw new IllegalArgumentException("Item inexistente");
+        } 
+        } catch (Exception e) {
+            System.out.println("Não pode ser bloqueado: " + e.getMessage());
+        }
+        
+    }
 }

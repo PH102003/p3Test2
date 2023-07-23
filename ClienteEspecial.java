@@ -19,10 +19,10 @@ public class ClienteEspecial extends Cliente {
     public void setSaldoDeCompras(double saldoDeCompras) {
         this.saldoDeCompras = saldoDeCompras;
     }
-    public void compra(double numeroDePontos) {
-        double acumulacaoPontos = getSaldoDeCompras();
+    public void compra(Item item, double numeroDePontos) {
+        double saldoCompra = getSaldoDeCompras();
         
-        while(acumulacaoPontos >= 100){
+        while(saldoCompra >= 100){
             setSaldoDeCompras(getSaldoDeCompras() * 0.05);
             this.pontos += 5;
             /*logica pra a cada interação que o loop fizer,
@@ -30,11 +30,14 @@ public class ClienteEspecial extends Cliente {
             por exemplo, 200 reais é o saldo, daí ele vai continuar sendo processado pelo loop
             até que o valor não ultrapasse/não seja igual aos 100 reais (acumulando os pontos juntamente).
             */
-            acumulacaoPontos -= 100;
+            saldoCompra -= 100;
 
         }
-        if(numeroDePontos == acumulacaoPontos ){
-            
+        if(numeroDePontos >= this.pontos){
+            this.pontos -= numeroDePontos;
+            System.out.println(item.getNome() + "foi comprado com seus pontos");
+        }else{
+            System.out.println("Item não pode ser adquirido(pontos insuficientes)");
         }
     }
 }
