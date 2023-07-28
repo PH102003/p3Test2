@@ -35,6 +35,7 @@ public class Funcionario extends ClienteEspecial {
         try {
          if(itemBloqueado != null){
             System.out.println("Item bloqueado com sucesso");
+            itemBloqueado.setDisponibilidade(false);
             //entra no else se o item for 'null'
         }else{
             throw new IllegalArgumentException("Item inexistente");
